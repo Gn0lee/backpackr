@@ -1,1 +1,3 @@
-export default function Horizontal() {}
+export default function Horizontal() {
+	return <h1>Backpackr assignment</h1>;
+}
