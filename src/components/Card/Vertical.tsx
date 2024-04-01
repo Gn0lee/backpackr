@@ -41,54 +41,56 @@ export default function Vertical({ image, rank, crossOut, href, highlight, title
 	return (
 		<a href={href} css={[containerCSS, styles?.container]}>
 			<img src={image.src} alt={image.alt} css={[imageCSS, styles?.image]} />
-			<div css={[contentCSS, styles?.content]}>
-				<div css={[cardInfoBoxCSS, styles?.cardInfoBox]}>
-					<div css={[titleLabelBoxCSS, styles?.titleLabelBox]}>
-						<h3 css={[titleCSS, styles?.title]}>{title}</h3>
-						<p css={[labelCSS, styles?.label]}>{label}</p>
+			<div>
+				<div css={[contentCSS, styles?.content]}>
+					<div css={[cardInfoBoxCSS, styles?.cardInfoBox]}>
+						<div css={[titleLabelBoxCSS, styles?.titleLabelBox]}>
+							<h3 css={[titleCSS, styles?.title]}>{title}</h3>
+							<p css={[labelCSS, styles?.label]}>{label}</p>
+						</div>
+						<div css={[highlightBoxCSS, styles?.highlightBox]}>
+							<strong css={[highlightCSS, styles?.highlight]}>{highlight}</strong>
+							<p css={[crossOutCSS, styles?.crossOut]}>{crossOut}</p>
+						</div>
 					</div>
-					<div css={[highlightBoxCSS, styles?.highlightBox]}>
-						<strong css={[highlightCSS, styles?.highlight]}>{highlight}</strong>
-						<p css={[crossOutCSS, styles?.crossOut]}>{crossOut}</p>
-					</div>
+					{rank && (
+						<div css={[rankBoxCSS, styles?.rankBox]}>
+							<ul css={[rankStarBoxCSS, styles?.rankStarBox]}>
+								<li
+									css={[
+										rankStarCSS(rank.number > 0),
+										rank.number > 0 ? styles?.rankStar?.active : styles?.rankStar?.inactive,
+									]}
+								/>
+								<li
+									css={[
+										rankStarCSS(rank.number > 1),
+										rank.number > 1 ? styles?.rankStar?.active : styles?.rankStar?.inactive,
+									]}
+								/>
+								<li
+									css={[
+										rankStarCSS(rank.number > 2),
+										rank.number > 2 ? styles?.rankStar?.active : styles?.rankStar?.inactive,
+									]}
+								/>
+								<li
+									css={[
+										rankStarCSS(rank.number > 3),
+										rank.number > 3 ? styles?.rankStar?.active : styles?.rankStar?.inactive,
+									]}
+								/>
+								<li
+									css={[
+										rankStarCSS(rank.number > 4),
+										rank.number > 4 ? styles?.rankStar?.active : styles?.rankStar?.inactive,
+									]}
+								/>
+							</ul>
+							{rank.description && <p css={[rankDescriptionCSS, styles?.rankDescription]}>{rank.description}</p>}
+						</div>
+					)}
 				</div>
-				{rank && (
-					<div css={[rankBoxCSS, styles?.rankBox]}>
-						<ul css={[rankStarBoxCSS, styles?.rankStarBox]}>
-							<li
-								css={[
-									rankStarCSS(rank.number > 0),
-									rank.number > 0 ? styles?.rankStar?.active : styles?.rankStar?.inactive,
-								]}
-							/>
-							<li
-								css={[
-									rankStarCSS(rank.number > 1),
-									rank.number > 1 ? styles?.rankStar?.active : styles?.rankStar?.inactive,
-								]}
-							/>
-							<li
-								css={[
-									rankStarCSS(rank.number > 2),
-									rank.number > 2 ? styles?.rankStar?.active : styles?.rankStar?.inactive,
-								]}
-							/>
-							<li
-								css={[
-									rankStarCSS(rank.number > 3),
-									rank.number > 3 ? styles?.rankStar?.active : styles?.rankStar?.inactive,
-								]}
-							/>
-							<li
-								css={[
-									rankStarCSS(rank.number > 4),
-									rank.number > 4 ? styles?.rankStar?.active : styles?.rankStar?.inactive,
-								]}
-							/>
-						</ul>
-						{rank.description && <p css={[rankDescriptionCSS, styles?.rankDescription]}>{rank.description}</p>}
-					</div>
-				)}
 			</div>
 		</a>
 	);
@@ -102,8 +104,6 @@ const containerCSS = css`
 	border-radius: 8px;
 
 	overflow: hidden;
-
-	width: fit-content;
 
 	background: #fbfbfb;
 	text-decoration: none;
@@ -206,6 +206,7 @@ const crossOutCSS = css`
 const rankBoxCSS = css`
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 	gap: 8px;
 
 	padding: 16px;
@@ -213,6 +214,7 @@ const rankBoxCSS = css`
 	border-top: 1px solid #979797;
 
 	width: 100%;
+	height: 80px;
 `;
 
 const rankStarBoxCSS = css`

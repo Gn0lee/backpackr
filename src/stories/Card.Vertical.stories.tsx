@@ -28,7 +28,136 @@ export const Default: Story = {
 		},
 		styles: {
 			container: {
-				backgroundColor: '#fbfbfb',
+				width: '300px',
+			},
+			image: {
+				width: '100%',
+			},
+			content: {
+				width: '100%',
+			},
+			cardInfoBox: {
+				padding: '16px',
+			},
+			titleLabelBox: {
+				width: '100%',
+			},
+			title: {
+				color: '#090909',
+			},
+			label: {
+				color: '#7e7e7e',
+			},
+			highlightBox: {
+				gap: '4px',
+			},
+			highlight: {
+				color: 'red',
+			},
+			crossOut: {
+				color: '#979797',
+			},
+			rankBox: {
+				borderTop: '1px solid #979797',
+			},
+			rankStarBox: {
+				gap: '8px',
+			},
+			rankStar: {
+				active: {
+					color: '#F3C229FF',
+				},
+				inactive: {
+					color: '#807e7e',
+				},
+			},
+			rankDescription: {
+				color: '#5d5d5d',
+			},
+		},
+	},
+};
+
+export const WithNoRankDescription: Story = {
+	args: {
+		image: {
+			src: 'https://via.placeholder.com/300',
+			alt: 'Placeholder image',
+		},
+		title: 'Title',
+		label: 'Label',
+		highlight: 'Highlight',
+		crossOut: 'Cross out',
+		href: '/',
+		rank: {
+			number: 4,
+		},
+		styles: {
+			container: {
+				width: '300px',
+			},
+			image: {
+				width: '100%',
+			},
+			content: {
+				width: '100%',
+			},
+			cardInfoBox: {
+				padding: '16px',
+			},
+			titleLabelBox: {
+				width: '100%',
+			},
+			title: {
+				color: '#090909',
+			},
+			label: {
+				color: '#7e7e7e',
+			},
+			highlightBox: {
+				gap: '4px',
+			},
+			highlight: {
+				color: 'red',
+			},
+			crossOut: {
+				color: '#979797',
+			},
+			rankBox: {
+				borderTop: '1px solid #979797',
+			},
+			rankStarBox: {
+				gap: '8px',
+			},
+			rankStar: {
+				active: {
+					color: '#F3C229FF',
+				},
+				inactive: {
+					color: '#807e7e',
+				},
+			},
+			rankDescription: {
+				color: '#5d5d5d',
+			},
+		},
+	},
+};
+
+export const WithNoRank: Story = {
+	args: {
+		image: {
+			src: 'https://via.placeholder.com/300',
+			alt: 'Placeholder image',
+		},
+		title: 'Title',
+		label: 'Label',
+		highlight: 'Highlight',
+		crossOut: 'Cross out',
+		href: '/',
+		styles: {
+			container: {
+				width: '300px',
 			},
 			image: {
 				width: '100%',
