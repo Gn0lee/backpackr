@@ -1,6 +1,6 @@
-import { css, CSSObject, SerializedStyles } from '@emotion/react';
+import { css } from '@emotion/react';
 
-type Style = CSSObject | SerializedStyles | SerializedStyles[];
+import { PropsStyle } from 'src/types/style';
 
 export interface VerticalProps {
 	image: {
@@ -17,23 +17,23 @@ export interface VerticalProps {
 	};
 	href: string;
 	styles?: {
-		container?: Style;
-		image?: Style;
-		content?: Style;
-		cardInfoBox?: Style;
-		titleLabelBox?: Style;
-		title?: Style;
-		label?: Style;
-		highlightBox?: Style;
-		highlight?: Style;
-		crossOut?: Style;
-		rankBox?: Style;
-		rankStarBox?: Style;
+		container?: PropsStyle;
+		image?: PropsStyle;
+		content?: PropsStyle;
+		cardInfoBox?: PropsStyle;
+		titleLabelBox?: PropsStyle;
+		title?: PropsStyle;
+		label?: PropsStyle;
+		highlightBox?: PropsStyle;
+		highlight?: PropsStyle;
+		crossOut?: PropsStyle;
+		rankBox?: PropsStyle;
+		rankStarBox?: PropsStyle;
 		rankStar?: {
-			active: Style;
-			inactive: Style;
+			active: PropsStyle;
+			inactive: PropsStyle;
 		};
-		rankDescription?: Style;
+		rankDescription?: PropsStyle;
 	};
 }
 

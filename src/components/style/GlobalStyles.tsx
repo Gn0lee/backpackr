@@ -19,6 +19,7 @@ export default function GlobalStyles() {
 
 					margin: 0;
 					padding: 0;
+					border: 0;
 				}
 			`}
 		/>
