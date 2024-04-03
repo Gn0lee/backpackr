@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 import { ComponentPropsWithoutRef } from 'react';
 import { PropsStyle } from 'src/types/style';
 
-interface TextareaProps extends ComponentPropsWithoutRef<'textarea'> {
+export interface TextareaProps extends ComponentPropsWithoutRef<'textarea'> {
 	styles?: {
 		inputting?: {
 			container?: PropsStyle;
@@ -24,13 +24,14 @@ export default function Textarea({ styles, ...props }: TextareaProps) {
 	const inputting =
 		!props.readOnly && !props.disabled && props.defaultValue && props.value && props.defaultValue !== props.value;
 
-	const currentPropsStyles = inputting ? styles?.inputting : styles?.default;
-
 	return (
-		<div css={[containerCSS, currentPropsStyles?.container]}>
-			<textarea {...props} css={[textareaCSS, inputting && inputtingTextareaCSS, currentPropsStyles?.textarea]} />
+		<div css={[containerCSS, styles?.default?.container, inputting && styles?.inputting?.container]}>
+			<textarea
+				{...props}
+				css={[textareaCSS, styles?.default?.textarea, inputting && inputtingTextareaCSS, styles?.inputting?.textarea]}
+			/>
 			{props.maxLength && (
-				<div css={[currentLengthCSS, currentPropsStyles?.currentLength]}>
+				<div css={[currentLengthCSS, styles?.default?.currentLength, inputting && styles?.inputting?.currentLength]}>
 					{props.maxLength - (props.value?.length || 0)}
 				</div>
 			)}
@@ -43,7 +44,10 @@ const containerCSS = css`
 `;
 
 const textareaCSS = css`
+	display: block;
+
 	width: 100%;
+	height: 100%;
 
 	padding: 8px;
 
@@ -85,7 +89,7 @@ const inputtingTextareaCSS = css`
 
 const currentLengthCSS = css`
 	position: absolute;
-	bottom: 8px;
+	bottom: 6px;
 	right: 14px;
 
 	font-size: 11px;
