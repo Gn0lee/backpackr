@@ -5,7 +5,6 @@ import Textarea from 'src/Textarea';
 const meta: Meta = {
 	title: 'Textarea',
 	component: Textarea,
-	render: args => <Textarea {...args} />,
 };
 
 export default meta;
